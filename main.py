@@ -41,6 +41,7 @@ def on_gesture_shake():
             basic.show_string("Round:" + str(step))
         basic.show_string("Player:" + str(current_player))
         rand = randint(0, 1)
+        animation
         if rand: 
             basic.show_leds("""
             # # # # #
@@ -70,4 +71,13 @@ def animation():
     leds_xy = [[4,2], [4,3], [3,4],
                [2,4], [1,4], [0,3],
                [0,2], [0,1], [1,0],               
-               [2,0], [0,3], [4,1]]
+               [2,0], [3,0], [4,1]]
+    for xy in leds_xy:
+        led.plot(xy[0], xy[1])
+    for i in range(3):
+        for xy1 in leds_xy:
+            led.unplot(xy1[0], xy1[1])
+            basic.pause(200)
+            led.plot(xy1[0], xy1[1])
+
+animation()

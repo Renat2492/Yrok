@@ -38,6 +38,7 @@ input.onGesture(Gesture.Shake, function on_gesture_shake() {
         
         basic.showString("Player:" + ("" + current_player))
         rand = randint(0, 1)
+        animation
         if (rand) {
             basic.showLeds(`
             # # # # #
@@ -68,6 +69,17 @@ input.onGesture(Gesture.Shake, function on_gesture_shake() {
 })
 function animation() {
     basic.clearScreen()
-    let leds_xy = [[4, 2], [4, 3], [3, 4], [2, 4], [1, 4], [0, 3], [0, 2], [0, 1], [1, 0], [2, 0], [0, 3], [4, 1]]
+    let leds_xy = [[4, 2], [4, 3], [3, 4], [2, 4], [1, 4], [0, 3], [0, 2], [0, 1], [1, 0], [2, 0], [3, 0], [4, 1]]
+    for (let xy of leds_xy) {
+        led.plot(xy[0], xy[1])
+    }
+    for (let i = 0; i < 3; i++) {
+        for (let xy1 of leds_xy) {
+            led.unplot(xy1[0], xy1[1])
+            basic.pause(200)
+            led.plot(xy1[0], xy1[1])
+        }
+    }
 }
 
+animation()
