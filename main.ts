@@ -3,6 +3,7 @@ let players = 0
 let current_player = 0
 let step = -1
 input.onPinPressed(TouchPin.P0, function start_game() {
+    animation()
     
     players = 2
     current_player = 1
@@ -38,7 +39,6 @@ input.onGesture(Gesture.Shake, function on_gesture_shake() {
         
         basic.showString("Player:" + ("" + current_player))
         rand = randint(0, 1)
-        animation
         if (rand) {
             basic.showLeds(`
             # # # # #
@@ -82,4 +82,3 @@ function animation() {
     }
 }
 
-animation()

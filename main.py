@@ -4,6 +4,7 @@ current_player = 0
 step = -1
 
 def start_game():
+    animation()
     global players, current_player, step
     players = 2
     current_player = 1
@@ -41,7 +42,6 @@ def on_gesture_shake():
             basic.show_string("Round:" + str(step))
         basic.show_string("Player:" + str(current_player))
         rand = randint(0, 1)
-        animation
         if rand: 
             basic.show_leds("""
             # # # # #
@@ -80,4 +80,3 @@ def animation():
             basic.pause(200)
             led.plot(xy1[0], xy1[1])
 
-animation()
