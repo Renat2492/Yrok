@@ -64,3 +64,10 @@ def on_gesture_shake():
             step = step + 1
 
 input.on_gesture(Gesture.SHAKE, on_gesture_shake)
+
+def animation():
+    basic.clear_screen()
+    leds_xy = [[4,2], [4,3], [3,4],
+               [2,4], [1,4], [0,3],
+               [0,2], [0,1], [1,0],               
+               [2,0], [0,3], [4,1]]
